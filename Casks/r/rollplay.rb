@@ -12,12 +12,14 @@ cask "rollplay" do
   app "RollPlay.app"
 
   postflight do
+    # macOS may not always apply quarantine attribute; ignore error if missing
+
     system_command "/usr/bin/xattr",
                    args:         ["-d", "com.apple.quarantine", "/Applications/RollPlay.app"],
                    sudo:         false,
                    print_stderr: false
-  rescue => e
-    opoo "Could not remove quarantine attribute: #{e.message}"
+  rescue
+    opoo "com.apple.quarantine attribute not found or could not be removed"
   end
 
   zap trash: "/Applications/RollPlay.app"
