@@ -13,10 +13,11 @@ cask "rollplay" do
 
   postflight do
     system_command "/usr/bin/xattr",
-                   args:          ["-d", "com.apple.quarantine", "/Applications/RollPlay.app"],
-                   sudo:          false,
-                   print_stderr:  false,
-                   fail_if_error: false
+                   args:         ["-d", "com.apple.quarantine", "/Applications/RollPlay.app"],
+                   sudo:         false,
+                   print_stderr: false
+  rescue => e
+    opoo "Could not remove quarantine attribute: #{e.message}"
   end
 
   zap trash: "/Applications/RollPlay.app"
