@@ -1,8 +1,8 @@
 cask "livewallpaper" do
-  version "1.4.0"
+  version "V1.4.0"
   sha256 :no_check
 
-  url "https://github.com/thusvill/LiveWallpaperMacOS/releases/download/V#{version}/LiveWallpaper-Silicon.dmg"
+  url "https://github.com/thusvill/LiveWallpaperMacOS/releases/download/V1.4.0/LiveWallpaper-Silicon.dmg"
   name "LiveWallpaper"
   desc "Open-source live wallpaper application"
   homepage "https://github.com/thusvill/LiveWallpaperMacOS"
