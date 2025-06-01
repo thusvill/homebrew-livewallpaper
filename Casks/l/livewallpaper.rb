@@ -1,8 +1,10 @@
 cask "livewallpaper" do
-  version "1.4.0"
+  version :latest
   sha256 :no_check
 
-  url "https://github.com/thusvill/LiveWallpaperMacOS/releases/download/V#{version}/LiveWallpaper-Silicon.dmg"
+  url "https://github.com/thusvill/LiveWallpaperMacOS/releases/latest/download/LiveWallpaper-Silicon.dmg",
+      verified: "github.com/thusvill/LiveWallpaperMacOS/"
+
   name "LiveWallpaper"
   desc "Open-source live wallpaper application"
   homepage "https://github.com/thusvill/LiveWallpaperMacOS"
@@ -12,8 +14,6 @@ cask "livewallpaper" do
   app "LiveWallpaper.app"
 
   postflight do
-    # macOS may not always apply quarantine attribute; ignore error if missing
-
     system_command "/usr/bin/xattr",
                    args:         ["-d", "com.apple.quarantine", "/Applications/LiveWallpaper.app"],
                    sudo:         false,
