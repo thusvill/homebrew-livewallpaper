@@ -2,7 +2,7 @@ cask "livewallpaper" do
   version :latest
   sha256 :no_check
 
-  url "https://github.com/thusvill/LiveWallpaperMacOS/releases/latest/download/LiveWallpaper-Silicon.dmg",
+  url "https://github.com/thusvill/LiveWallpaperMacOS/releases/latest/download/LiveWallpaper.dmg",
       verified: "github.com/thusvill/LiveWallpaperMacOS/"
 
   name "LiveWallpaper"
