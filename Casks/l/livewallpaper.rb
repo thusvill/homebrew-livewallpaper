@@ -9,7 +9,7 @@ cask "livewallpaper" do
   desc "Open-source live wallpaper application"
   homepage "https://github.com/thusvill/LiveWallpaperMacOS"
 
-  depends_on macos: :sequoia
+  depends_on macos: ">= :sonoma"
 
   app "LiveWallpaper.app"
 
