@@ -3,7 +3,6 @@ cask "livewallpaper" do
   sha256 :no_check
 
   url "https://github.com/thusvill/LiveWallpaperMacOS/releases/latest/download/LiveWallpaper.dmg"
-
   name "LiveWallpaper"
   desc "Open-source live wallpaper application"
   homepage "https://github.com/thusvill/LiveWallpaperMacOS"
@@ -13,12 +12,9 @@ cask "livewallpaper" do
   app "LiveWallpaper.app"
 
   postflight_steps do
-    system_command "/usr/bin/xattr",
-                   args:         ["-d", "com.apple.quarantine", "/Applications/LiveWallpaper.app"],
-                   sudo:         false,
-                   print_stderr: false
-  rescue
-    warn "com.apple.quarantine attribute not found or could not be removed"
+    run "/usr/bin/xattr",
+        args: ["-d", "com.apple.quarantine", "/Applications/LiveWallpaper.app"],
+        must_succeed: false
   end
 
   zap trash: "/Applications/LiveWallpaper.app"
