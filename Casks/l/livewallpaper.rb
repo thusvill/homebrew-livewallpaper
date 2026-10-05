@@ -18,7 +18,7 @@ cask "livewallpaper" do
                    sudo:         false,
                    print_stderr: false
   rescue
-    opoo "com.apple.quarantine attribute not found or could not be removed"
+    warn "com.apple.quarantine attribute not found or could not be removed"
   end
 
   zap trash: "/Applications/LiveWallpaper.app"
